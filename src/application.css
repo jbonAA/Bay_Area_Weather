@@ -1,0 +1,25 @@
+#map {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    height: 100vh;
+    width: 100vw;
+    z-index: -1;
+    
+    background-repeat: no-repeat;
+    background-size: contain;
+
+}
+
+#map canvas {
+    width: 300px;
+    z-index: -1;
+}
+
+body {
+    margin: 0;
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: -1;
+    background-image: url('https://api.mapbox.com/styles/v1/mapbox/dark-v10/static/-122.437951,37.759917,10.52/800x800?access_token=pk.eyJ1IjoicHJvc2UwMDIxIiwiYSI6ImNrMzZoYWdidTAxcm8zaW82MW5jZmV6c2EifQ.PRbSpg500wqcoctnYFTIog')
+}
