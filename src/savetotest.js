@@ -1,0 +1,61 @@
+// const CARDINAL = [{
+//     "N": 0,
+//     "NNE": 20,
+//     "NE": 45,
+//     "ENE": 70,
+//     "E": 90,
+//     "ESE": 110,
+//     "SE": 135,
+//     "SSE": 160,
+//     "S": 180,
+//     "SSW": 205,
+//     "SW": 225,
+//     "WSW": 245,
+//     "W": 270,
+//     "WNW": 295,
+//     "NW": 315,
+//     "NNW": 335
+// }]
+
+// class WindDirections {
+//     constructor() {
+//         this.allStations = [
+//             [37.875271, -122.597703],
+//             [37.882356, -122.282195],
+//             [37.677214, -122.495821],
+//             [37.705890, -122.157217]
+//         ]
+//         this.windDir = {}
+//         this.promises = []
+
+//         this.getWeather()
+//         this.formatData()
+//     }
+
+//     getWeather() {
+//         this.allStations.forEach(async (el) => {
+//             let that = this
+//             const res = await fetch(`http://api.weather.gov/points/${el}/forecast/hourly`)
+//                 .then((res) => {
+//                     debugger
+//                     this.promises.push({
+//                         data: res.data.properties
+//                     })
+//                 })
+
+//             console.log(this.promises)
+
+//         })
+//     }
+
+//     formatData() {
+//         this.promises.forEach((el) => {
+//             let length = el.data.periods
+//             let dir = el.data.periods[length - 1].windDirection
+//             this.windDir[promises.indexOd(el)] = dir
+//         })
+//     }
+
+// }
+
+// module.exports = WindDirections
