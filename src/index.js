@@ -1,3 +1,5 @@
+
+ console.log(paths)
 const CARDINAL = {
     "N": 0,
     "NNE": 20,
@@ -27,7 +29,7 @@ class WindDirections {
         ]
         this.windDir = {}
         this.promises = []
-
+        this.avg = 0
         this.getWeather()
     }
 
@@ -45,19 +47,38 @@ class WindDirections {
                     this.promises.forEach((el) => {
                     let length = el.data.periods.length
                     let dir = el.data.periods[length - 1].windDirection
+                    this.windDir[this.promises.indexOf(el)] = CARDINAL[`${dir}`]
 
-                        this.windDir[this.promises.indexOf(el)] = CARDINAL[`${dir}`]
+                    if (Object.values(this.windDir).length === 4){
+                        return this.findAvg()
+                    }
 
+                    
+                    
                 })
 
             })
 
         })
-        console.log(this.windDir)
+        
 
+    }
+
+    findAvg() {
+        Object.values(this.windDir).forEach((el) => {
+            this.avg += el
+        })
+        this.avg = this.avg / 4
+
+        console.log(this.avg)
+        paths(wind.avg)
     }
 
 }
 
 const wind = new WindDirections()
 console.log(wind)
+
+console.log(wind.avg)
+
+
