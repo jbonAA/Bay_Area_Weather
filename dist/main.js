@@ -95,6 +95,7 @@
 
 
  console.log(paths)
+
 const CARDINAL = {
     "N": 0,
     "NNE": 20,
@@ -137,6 +138,7 @@ class WindDirections {
                         that.promises.push({
                             data: data.properties
                     })
+                    console.log(data)
                 })
                 .then(() => {
                     this.promises.forEach((el) => {
@@ -147,9 +149,6 @@ class WindDirections {
                     if (Object.values(this.windDir).length === 4){
                         return this.findAvg()
                     }
-
-                    
-                    
                 })
 
             })
@@ -167,6 +166,8 @@ class WindDirections {
 
         console.log(this.avg)
         paths(wind.avg)
+        directions(this.avg, Object.values(wind.windDir))
+        console.log(this.windDir)
     }
 
 }
