@@ -26,7 +26,7 @@ function directions(avg, windDir) {
 
     const windVals = windDir
     for(let i = 0; i < windVals.length; i++) {
-        data = data.concat(returnLine(windVals[i], i))
+        data.push(returnLine(windVals[i], i))
 
         console.log(data)
 
@@ -71,20 +71,20 @@ function returnLine(num, idx) {
                 x = line[line.length - 1].x
                 y = line[line.length - 1].y
                 if (10 < num < 30) {
-                    line.push({ x: x + 1, y: y + 2.5 })
+                    line.push({ x: x + 10, y: y + 25 })
                 } else if (30 < num < 60) {
-                    line.push({ x: x + 1, y: y + 1 })
+                    line.push({ x: x + 10, y: y + 10 })
                 } else if (60 < num < 90) {
-                    line.push({ x: x + 2.5, y: y + 1 })
+                    line.push({ x: x + 25, y: y + 10 })
                 } else {
-                    line.push({ x: x + 1, y: y + 0 })
+                    line.push({ x: x + 10, y: y + 0 })
                 }
             }
         break
         case (num <= 180):
-            line.push(STARTINGPOINTS[idx][0])
-            x = STARTINGPOINTS[idx][0].x
-            y = STARTINGPOINTS[idx][0].y
+            line.push(STARTINGPOINTS[idx][1])
+            x = STARTINGPOINTS[idx][1].x
+            y = STARTINGPOINTS[idx][1].y
             x = x
             y = y
             let endX2 = [x - 200, x + 200]
@@ -93,12 +93,14 @@ function returnLine(num, idx) {
             while (x < endX2[1] && y < endY2[1]) {
                 x = line[line.length - 1].x
                 y = line[line.length - 1].y
-                if (100 < num < 130) {
-                    line.push({ x: x + 2, y: y - 1 })
-                } else if (130 < num < 160) {
-                    line.push({ x: x + 1, y: y - 2 })
-                } else if (160 < num < 180) {
-                    line.push({ x: x + 0.5, y: y + 1 })
+                if (num < 130) {
+                    line.push({ x: x + 20, y: y - 10 })
+                } else if (num < 160) {
+                    line.push({ x: x + 10, y: y - 20 })
+                } else if (num < 180) {
+                    line.push({ x: x + 5, y: y + 10 })
+                }else if(num === 180){
+                    line.push({x: x + 0, y: y + 20})
                 }
             }
         break
@@ -112,15 +114,15 @@ function returnLine(num, idx) {
             let endX3 = [x - 200, x + 200]
             let endY3 = [y - 100, y + 200]
 
-            while (endX3[0] < x && endY3[0] < y) {
+            while (endX3[0] < x && y < endY3[1]) {
                 x = line[line.length - 1].x
                 y = line[line.length - 1].y
                 if (180 < num < 205) {
-                    line.push({ x: x - 10, y: y - 30 })
+                    line.push({ x: x - 10, y: y + 30 })
                 } else if (205 < num < 240) {
-                    line.push({ x: x - 10, y: y - 10 })
+                    line.push({ x: x - 10, y: y + 10 })
                 } else if (240 < num < 270) {
-                    line.push({ x: x - 20, y: y - 10 })
+                    line.push({ x: x - 20, y: y + 10 })
                 } else {
                     line.push({ x: x - 10, y: y + 0 })
                 }
@@ -136,14 +138,14 @@ function returnLine(num, idx) {
             while (endX4[0] < x && endY4[0] < y) {
                 x = line[line.length - 1].x
                 y = line[line.length - 1].y
-                if (270 < num < 310) {
-                    line.push({ x: x - 20, y: y + 10 })
-                } else if (310 < num < 330) {
-                    line.push({ x: x - 10, y: y + 10 })
-                } else if (330 < num < 360) {
-                    line.push({ x: x - 5, y: y + 20 })
+                if (num < 310) {
+                    line.push({ x: x + 20, y: y - 10 })
+                } else if (num < 330) {
+                    line.push({ x: x + 10, y: y - 10 })
+                } else if (num < 360) {
+                    line.push({ x: x + 5, y: y - 20 })
                 } else {
-                    line.push({ x: x + 0, y: y + 30 })
+                    line.push({ x: x + 0, y: y - 30 })
                 }
             }
         break
