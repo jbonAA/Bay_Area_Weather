@@ -94,10 +94,10 @@
 /***/ (function(module, exports) {
 
 
- console.log(paths)
+//  console.log(paths)
 
 const CARDINAL = {
-    "N": 0,
+    "N": 360,
     "NNE": 20,
     "NE": 45,
     "ENE": 70,
@@ -126,6 +126,7 @@ class WindDirections {
         this.windDir = {}
         this.promises = []
         this.avg = 0
+        this.data = []
         this.getWeather()
     }
 
@@ -138,7 +139,10 @@ class WindDirections {
                         that.promises.push({
                             data: data.properties
                     })
-                    console.log(data)
+                        that.data.push({
+                            elevation: data.properties.elevation,
+                            period: data.properties.periods.slice(-1)
+                        })
                 })
                 .then(() => {
                     this.promises.forEach((el) => {
@@ -147,6 +151,7 @@ class WindDirections {
                     this.windDir[this.promises.indexOf(el)] = CARDINAL[`${dir}`]
 
                     if (Object.values(this.windDir).length === 4){
+                        this.formatData()
                         return this.findAvg()
                     }
                 })
@@ -165,9 +170,17 @@ class WindDirections {
         this.avg = this.avg / 4
 
         console.log(this.avg)
-        paths(wind.avg)
+        // paths(wind.avg)
         directions(this.avg, Object.values(wind.windDir))
         console.log(this.windDir)
+    }
+
+    formatData() {
+
+        
+        console.log(this.data)
+
+
     }
 
 }

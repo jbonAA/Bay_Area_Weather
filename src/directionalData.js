@@ -2,7 +2,7 @@ const STARTINGPOINTS = [
     [{x: 0, y: 0}, { x: 200, y: 0 }, {x: 400, y: 0}, {x: 400, y: 400}, {x: 0, y: 400}],
     [{ x: 400, y: 0}, {x: 600, y: 0}, {x: 800, y: 0}, {x: 800, y: 400}, {x: 400, y: 400}],
     [{ x: 0, y: 400 }, {x: 200, y: 400}, {x: 400, y:400}, {x: 400, y: 800}, {x: 0, y: 800}],
-    [{ x: 400, y: 400 }, {x: 600, y: 400}, {x: 800, y: 400}, {x: 800, y: 800}, {x: 400, y: 800} ]
+    [{ x: 400, y: 400 }, {x: 600, y: 400}, {x: 800, y: 400}, {x: 800, y: 800}, {x: 500, y: 800} ]
 ]
 
 function directions(avg, windDir) {
@@ -30,30 +30,38 @@ function directions(avg, windDir) {
 
         console.log(data)
 
-        // const lines = canvas.append('g')
-        //     .attr("transform", `translate(${line[0].x, line[0].y})`)
-
-        // var paths = d3.svg.line()
-        //     .x(function(d) {return d.x})
-        //     .y(function(d) {return d.y})
-
-        // d3.selectAll("path")
-        //     .data([line])
-        //     .enter()
-        //     .append("path")
-        //     .attr("d", paths)
-        //     .attr("fill", "none")
-        //     .attr("stroke", "white")
-        //     .attr("stroke-width", 1)
         
-        // console.log(line)
+
+
+
+        var group = canv.append('g')
+            .attr("transform", "translate(0, 0)")
+
+
+        var line = d3.svg.line()
+            .x(function (d) { return d.x })
+            .y(function (d) { return d.y })
+
+        group.selectAll("path")
+            .data([data[0]])
+            .enter()
+            .append("path")
+            .attr("d", line)
+            .attr("fill", "none")
+            .attr("stroke", "white")
+            .attr("stroke-width", 1)
+
+        
+
+        // animateLines(data)
+        data = []
+       
 
     }
-
-
-    
-
 }
+debugger
+
+
 
 function returnLine(num, idx) {
     let line = [];
@@ -88,7 +96,7 @@ function returnLine(num, idx) {
             x = x
             y = y
             let endX2 = [x - 200, x + 200]
-            let endY2 = [y - 200, y + 200]
+            let endY2 = [y - 200, y + 400]
 
             while (x < endX2[1] && y < endY2[1]) {
                 x = line[line.length - 1].x
@@ -112,7 +120,7 @@ function returnLine(num, idx) {
             x = line[line.length - 1].x
             y = line[line.length - 1].y
             let endX3 = [x - 200, x + 200]
-            let endY3 = [y - 100, y + 200]
+            let endY3 = [y - 100, y + 300]
 
             while (endX3[0] < x && y < endY3[1]) {
                 x = line[line.length - 1].x
@@ -128,7 +136,7 @@ function returnLine(num, idx) {
                 }
             }
         break
-        case (num < 360):
+        case (num <= 360):
             line.push(STARTINGPOINTS[idx][4])
             x = STARTINGPOINTS[idx][4].x
             y = STARTINGPOINTS[idx][4].y
