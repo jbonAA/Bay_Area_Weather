@@ -93,9 +93,6 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-
-//  console.log(paths)
-
 const CARDINAL = {
     "N": 360,
     "NNE": 20,
@@ -123,10 +120,14 @@ class WindDirections {
             [37.677214, -122.495821],
             [37.705890, -122.157217]
         ]
+        //make allStations map bounds
+        //grab lnglat from place string
+        //this.place = [37, -122]
         this.windDir = {}
         this.promises = []
         this.avg = 0
         this.data = []
+        this.forecast = {}
         this.getWeather()
     }
 
@@ -149,22 +150,24 @@ class WindDirections {
                     this.promises.forEach((el) => {
 
                     let dir = el.data.periods[0].windDirection
+                    this.forecast = el.data.periods[0]
                     this.windDir[this.promises.indexOf(el)] = CARDINAL[`${dir}`]
-
+                    
                     if (Object.values(this.windDir).length === 4){
-                        this.formatData()
                         return this.findAvg()
                     }
+                    //add periods 2-4 for future
+                    // this.formatData(forecast)
                 })
 
             })
 
         })
-        
 
     }
 
     findAvg() {
+        console.log(this.forecast)
         Object.values(this.windDir).forEach((el) => {
             this.avg += el
         })
@@ -174,14 +177,24 @@ class WindDirections {
         // paths(wind.avg)
         directions(this.avg, Object.values(wind.windDir))
         console.log(this.windDir)
+        this.formatData(this.forecast)
     }
 
-    formatData() {
+    formatData(forecast) {
+        let details = {
+            windSpeed: forecast.windSpeed,
+            windDirection: forecast.windDirection,
+            temperature: forecast.temperature,
+            temperatureUnit: forecast.temperatureUnit,
+            shortForecast: forecast.shortForecast,
+            icon: forecast.icon,
+        }
 
-        
-        console.log(this.data)
 
 
+
+
+        appendElements(details)
     }
 
 }
