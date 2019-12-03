@@ -135,6 +135,7 @@ class WindDirections {
             let that = this
             const res = await fetch(`http://api.weather.gov/points/${el}/forecast/hourly`)
                 .then(res => res.json())
+
                 .then(data => {
                         that.promises.push({
                             data: data.properties
@@ -146,8 +147,8 @@ class WindDirections {
                 })
                 .then(() => {
                     this.promises.forEach((el) => {
-                    let length = el.data.periods.length
-                    let dir = el.data.periods[length - 1].windDirection
+
+                    let dir = el.data.periods[0].windDirection
                     this.windDir[this.promises.indexOf(el)] = CARDINAL[`${dir}`]
 
                     if (Object.values(this.windDir).length === 4){
