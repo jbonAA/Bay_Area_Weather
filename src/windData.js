@@ -1,8 +1,8 @@
 
 function determineDirection(firstPoints, dir){
-    debugger
-    console.log(firstPoints)
-    console.log(dir.y)
+    // debugger
+    // console.log(firstPoints)
+    // console.log(dir.y)
 
     if (dir.x < 0){
         if (dir.y === 0){
@@ -31,7 +31,7 @@ function determineDirection(firstPoints, dir){
 }
 
 function directionMovement(start, lines, avg) {
-    debugger
+    // debugger
     let last = start.slice(-1)
     let firstPoints = {x: 0, y: 0}
     let shortest = 800
@@ -40,7 +40,7 @@ function directionMovement(start, lines, avg) {
     console.log(shortest)
 
     lines._groups[0].forEach((el) => {
-        debugger
+        // debugger
         el.__data__.forEach((point) => {
             let dist = Math.abs(point.x - last[0].x) + Math.abs(point.y - last[0].y)
             if (Math.abs(dist) < shortest){
@@ -57,12 +57,12 @@ function directionMovement(start, lines, avg) {
                 console.log(dir)
             }
 
-            console.log(el)
-            console.log("___________")
-            console.log(shortest)
+            // console.log(el)
+            // console.log("___________")
+            // console.log(shortest)
         })
     })
-    console.log(dir)
+    // console.log(dir)
 
 
 
@@ -111,8 +111,8 @@ function calculateLoss(lines, num) {
         break
         case(num <= 270):
             if(num <= 210){
-                start.push({ x: 800, y: 0})
-                start.push({ x: 750, y: 50})
+                start.push({ x: 700, y: 50})
+
             }else if(num <= 240){
                 start.push({ x: 800, y: 200})
                 start.push({ x: 750, y: 250})
