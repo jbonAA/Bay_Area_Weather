@@ -75,7 +75,7 @@ function directions(avg, windDir) {
         var line2 = d3.svg.line()
             .x(function (d) { return d.x })
             .y(function (d) { return d.y })
-            .interpolate('basis')
+            .interpolate('basis-open')
 
         var lineData = windDirection
 
