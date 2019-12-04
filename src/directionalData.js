@@ -54,18 +54,41 @@ function directions(avg, windDir) {
             
 
 
+                debugger
+                
+                
+                
+                data = []
+                
+                
+    }
+            let paths = d3.selectAll("path")
+            let windDirection = directionMovement(calculateLoss(paths, avg), paths, avg)
+            console.log(windDirection)
+            debugger
+    
+            data = windDirection
+
+        var group = canv.append('g')
+            .attr("transform", "translate(0, 0)")
+
+        var line2 = d3.svg.line()
+            .x(function (d) { return d.x })
+            .y(function (d) { return d.y })
+            .interpolate('basis')
+
+        var lineData = windDirection
+
+        var line = canv.append("path")
+            .attr("d", line2(lineData))
+            .attr("stroke", "white")
+            .attr("stroke-width", 2)
+            .attr("fill", "none")
+            
 
             
-        
-        data = []
-       
-
-    }
-
-    // var pathways = d3.selectAll("path")
-    // lineAnimate(pathways)
 }
-debugger
+
 
 
 
