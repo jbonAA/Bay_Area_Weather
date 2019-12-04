@@ -94,22 +94,22 @@
 /***/ (function(module, exports) {
 
 const CARDINAL = {
-    "N": 360,
-    "NNE": 20,
-    "NE": 45,
-    "ENE": 70,
-    "E": 90,
-    "ESE": 110,
-    "SE": 135,
-    "SSE": 160,
-    "S": 180,
-    "SSW": 205,
-    "SW": 225,
-    "WSW": 245,
-    "W": 270,
-    "WNW": 295,
-    "NW": 315,
-    "NNW": 335
+    "N": 180,
+    "NNE": 200,
+    "NE": 225,
+    "ENE": 245,
+    "E": 270,
+    "ESE": 290,
+    "SE": 315,
+    "SSE": 340,
+    "S": 360,
+    "SSW": 25, 
+    "SW": 45,
+    "WSW": 65,
+    "W": 90,
+    "WNW": 105,
+    "NW": 125,
+    "NNW": 145
 }
 
 class WindDirections {
@@ -128,6 +128,8 @@ class WindDirections {
         this.avg = 0
         this.data = []
         this.forecast = {}
+        this.future1 = {}
+        this.future2 = {}
         this.getWeather()
     }
 
@@ -143,7 +145,7 @@ class WindDirections {
                     })
                         that.data.push({
                             elevation: data.properties.elevation,
-                            period: data.properties.periods.slice(-1)
+                            period: data.properties.periods[0]
                         })
                 })
                 .then(() => {
@@ -151,6 +153,9 @@ class WindDirections {
 
                     let dir = el.data.periods[0].windDirection
                     this.forecast = el.data.periods[0]
+                    this.future1 = el.data.periods[4]
+                    this.future2 = el.data.periods[8]
+
                     this.windDir[this.promises.indexOf(el)] = CARDINAL[`${dir}`]
                     
                     if (Object.values(this.windDir).length === 4){
@@ -174,20 +179,29 @@ class WindDirections {
         this.avg = this.avg / 4
 
         console.log(this.avg)
-        // paths(wind.avg)
+
         directions(this.avg, Object.values(wind.windDir))
         console.log(this.windDir)
         this.formatData(this.forecast)
+
+        let in6hours = document.createElement("h3")
+        in6hours.textContent = "6 Hours From Now"
+        let container = document.querySelector("#info")
+        container.append(in6hours)
+
+        this.formatData(this.future1)
+        let in12hours = document.createElement("h3")
+        in12hours.textContent = "12 Hours From Now"
+        container.append(in12hours)
+        this.formatData(this.future2)
     }
 
     formatData(forecast) {
         let details = {
-            windSpeed: forecast.windSpeed,
-            windDirection: forecast.windDirection,
-            temperature: forecast.temperature,
-            temperatureUnit: forecast.temperatureUnit,
-            shortForecast: forecast.shortForecast,
             icon: forecast.icon,
+            Forecast: forecast.shortForecast,
+            Temperature: ` ${forecast.temperature}` + " " + `${forecast.temperatureUnit}`,
+            WindDirection: ` ${forecast.windDirection}` + "  approx  " + `${forecast.windSpeed}`
         }
 
 
