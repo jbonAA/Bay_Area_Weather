@@ -1,37 +1,37 @@
 
 function determineDirection(firstPoints, dir){
-    debugger
-    console.log(firstPoints)
-    console.log(dir.y)
+    // debugger
+    // console.log(firstPoints)
+    // console.log(dir.y)
 
     if (dir.x < 0){
         if (dir.y === 0){
-            return {x: firstPoints.x -10, y: firstPoints.y}
+            return {x: firstPoints.x -32, y: firstPoints.y}
         }else if(dir.y < 0){
-            return {x: firstPoints.x -10, y: firstPoints.y -10}
+            return {x: firstPoints.x -32, y: firstPoints.y -32}
         }else if(dir.y > 0){
-            return {x: firstPoints.x - 10, y: firstPoints.y + 10}
+            return {x: firstPoints.x - 32, y: firstPoints.y + 32}
         }
     }else if (dir.x === 0){
         if (dir.y > 0) {
-            return {x: firstPoints.x, y: firstPoints.y + 10}
+            return {x: firstPoints.x, y: firstPoints.y + 32}
         }else{
-            return {x: firstPoints.x, y: firstPoints.y - 10}
+            return {x: firstPoints.x, y: firstPoints.y - 32}
         }
     }else{
         if(dir.y < 0){
-            return {x: firstPoints.x + 10, y: firstPoints.y - 10}
+            return {x: firstPoints.x + 32, y: firstPoints.y - 32}
         }else if(dir.y > 0){
-            return {x: firstPoints.x + 10, y: firstPoints.y + 10}
+            return {x: firstPoints.x + 32, y: firstPoints.y + 32}
         }else{
-            return {x: firstPoints.x + 10, y: firstPoints.y}
+            return {x: firstPoints.x + 32, y: firstPoints.y}
         }
     }
     
 }
 
 function directionMovement(start, lines, avg) {
-    debugger
+    // debugger
     let last = start.slice(-1)
     let firstPoints = {x: 0, y: 0}
     let shortest = 800
@@ -40,27 +40,29 @@ function directionMovement(start, lines, avg) {
     console.log(shortest)
 
     lines._groups[0].forEach((el) => {
-        debugger
-        let newx = el.__data__[2].x - el.__data__[1].x
-        let newy = el.__data__[2].y - el.__data__[1].y
-        console.log(newy)
+        // debugger
         el.__data__.forEach((point) => {
-            let dist = point.x - last[0].x + point.y - last[0].y
-            console.log(Math.abs(dist))
+            let dist = Math.abs(point.x - last[0].x) + Math.abs(point.y - last[0].y)
             if (Math.abs(dist) < shortest){
+                
+                let newx = el.__data__[2].x - el.__data__[1].x
+                let newy = el.__data__[2].y - el.__data__[1].y
                 shortest = Math.abs(dist)
-                console.log(shortest)
                 points.x = point.x
                 points.y = point.y
                 firstPoints.x = last[0].x
                 firstPoints.y = last[0].y
                 dir.x = newx
                 dir.y = newy
+                console.log(dir)
             }
+
+            // console.log(el)
+            // console.log("___________")
+            // console.log(shortest)
         })
     })
-    console.log(shortest)
-    console.log(dir)
+    // console.log(dir)
 
 
 
@@ -109,13 +111,13 @@ function calculateLoss(lines, num) {
         break
         case(num <= 270):
             if(num <= 210){
-                start.push({ x: 800, y: 0})
-                start.push({ x: 750, y: 50})
+                start.push({ x: 700, y: 50})
+
             }else if(num <= 240){
                 start.push({ x: 800, y: 200})
                 start.push({ x: 750, y: 250})
             }else if(num <= 270){
-                start.push({ x:800, y: 410})
+                start.push({ x:800, y: 380})
 
             }
         break

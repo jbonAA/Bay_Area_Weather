@@ -48,7 +48,7 @@ function directions(avg, windDir) {
             .transition()
                 .duration(4000)
                 .ease(d3.easeLinear)
-                .attr("opacity", "0.5")
+                .attr("opacity", 0)
                 .attr("stroke", "white")
                 .attr("stroke-width", 1)
             
@@ -64,10 +64,44 @@ function directions(avg, windDir) {
     }
             let paths = d3.selectAll("path")
             let windDirection = directionMovement(calculateLoss(paths, avg), paths, avg)
-            console.log(windDirection)
+            let windDirection2 = directionMovement(calculateLoss(paths, avg + 20), paths, avg)
+
             debugger
-    
-            data = windDirection
+
+            let length = Math.ceil(windDirection.length / 4)
+
+            let length2 = Math.ceil(windDirection2.length / 4)
+            
+            
+            
+            let datum = []
+            let datum2 = []
+
+            datum1 = windDirection.slice(0, length)
+            datum2 = windDirection.slice(length - 1, length * 2)
+            datum3 = windDirection.slice(length * 2 - 1, length * 3)
+            datum4 = windDirection.slice(length * 3 - 1, length * 4)
+
+            datum5 = windDirection2.slice(0, length2)
+            datum6 = windDirection2.slice(length2 - 1, length2 * 2)
+            datum7 = windDirection2.slice(length2 * 2 - 1, length2 * 3)
+            datum8 = windDirection2.slice(length2 * 3 - 1, length2 * 4)
+
+            datum.push(datum1)
+            datum.push(datum2)
+            datum.push(datum3)
+            datum.push(datum4)
+
+            datum2.push(datum5)
+            datum2.push(datum6)
+            datum2.push(datum7)
+            datum2.push(datum8)
+
+
+            debugger
+            let aboveAndBelow = addMoreLines(windDirection)
+
+            let aboveAndBelow2 = addMoreLines(windDirection2)
 
         var group = canv.append('g')
             .attr("transform", "translate(0, 0)")
@@ -75,14 +109,107 @@ function directions(avg, windDir) {
         var line2 = d3.svg.line()
             .x(function (d) { return d.x })
             .y(function (d) { return d.y })
-            .interpolate('basis')
+            .interpolate('basis-open')
 
-        var lineData = windDirection
 
-        var line = canv.append("path")
-            .attr("d", line2(lineData))
+    
+        for (let i = 0; i < datum.length; i++) {
+            let lineData = datum[i]
+            let idx = i
+            let line = canv.append("path")
+                .attr("d", line2(lineData))
+                .attr("stroke", "white")
+                .attr("stroke-width", 2)
+                .attr("fill", "none")
+
+            let num = idx
+            if (idx === 0){
+                num = 2
+            }
+            repeat(num)
+
+            
+            function repeat(num) {
+                line
+                    .transition()
+                    .duration(1000)
+                    .attr("opacity", 0)
+                    .transition()
+                    .duration(500 * num + 2)
+                    .attr("opacity", 1)
+                    .on("end", repeat)
+
+            }
+
+            
+            
+ 
+        }
+
+    var line3 = d3.svg.line()
+        .x(function (d) { return d.x })
+        .y(function (d) { return d.y })
+        .interpolate('basis-open')
+
+    for (let i = 0; i < datum2.length; i++) {
+        let lineData = datum2[i]
+        let idx = i
+        let line = canv.append("path")
+            .attr("d", line3(lineData))
             .attr("stroke", "white")
             .attr("stroke-width", 2)
+            .attr("fill", "none")
+
+        let num = idx
+        if (idx === 0) {
+            num = 2
+        }
+        repeat(num)
+
+
+        function repeat(num) {
+            line
+                .transition()
+                .duration(1000)
+                .attr("opacity", 0)
+                .transition()
+                .duration(500 * num + 2)
+                .attr("opacity", 1)
+                .on("end", repeat)
+
+        }
+
+
+
+
+    }
+
+        
+
+
+            
+        canv.append("path")
+            .attr("d", line2(aboveAndBelow[0]))
+            .attr("stroke", "white")
+            .attr("stroke-width", 1.5)
+            .attr("fill", "none")
+        
+        canv.append("path")
+            .attr("d", line2(aboveAndBelow[1]))
+            .attr("stroke", "white")
+            .attr("stroke-width", 1.5)
+            .attr("fill", "none")
+
+        canv.append("path")
+            .attr("d", line2(aboveAndBelow2[0]))
+            .attr("stroke", "white")
+            .attr("stroke-width", 1.5)
+            .attr("fill", "none")
+
+        canv.append("path")
+            .attr("d", line2(aboveAndBelow2[1]))
+            .attr("stroke", "white")
+            .attr("stroke-width", 1.5)
             .attr("fill", "none")
             
 
@@ -102,9 +229,9 @@ function returnLine(num, idx) {
             x = STARTINGPOINTS[0].south[idx].x
             y = STARTINGPOINTS[0].south[idx].y
             let endX1 = [x - 400, x + 400]
-            let endY1 = [y - 400, y + 400]
+            let endY1 = [y - 200, y + 400]
 
-            while (x < endX1[1] && y < endY1[1]) {
+            while (x < endX1[1] && y < endY1[0] ) {
                 x = line[line.length - 1].x
                 y = line[line.length - 1].y
                 if (num < 30) {
