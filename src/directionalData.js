@@ -26,7 +26,6 @@ function directions(avg, windDir) {
     for(let i = 0; i < windVals.length; i++) {
         data.push(returnLine(windVals[i], i))
 
-        console.log(data)
 
         
 
@@ -54,7 +53,7 @@ function directions(avg, windDir) {
             
 
 
-                debugger
+                // debugger
                 
                 
                 
@@ -86,7 +85,7 @@ function directions(avg, windDir) {
 
 
 
-            debugger
+            // debugger
             let aboveAndBelow = addMoreLines(windDirection)
 
         var group = canv.append('g')
@@ -196,7 +195,7 @@ function directions(avg, windDir) {
 function returnLine(num, idx) {
     let line = [];
 
-    debugger
+    // debugger
     switch (num > 0) {
         case (num <= 90):
             line.push(STARTINGPOINTS[0].south[idx])

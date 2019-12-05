@@ -4,7 +4,7 @@ function addMoreLines (start) {
     let below = []
 
 
-    debugger
+    // debugger
     start.forEach((el) => {
         above.push({x: el.x + 20, y: el.y + 20})
         below.push({x: el.x - 20, y: el.y - 20})
