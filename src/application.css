@@ -25,6 +25,12 @@
     text-align: center;
 }
 
+#info h3 {
+    margin: 0;
+    text-align: center;
+    padding: 10px;
+}
+
 .weatherinfo {
     display: flex;
     flex-direction: row;
@@ -43,7 +49,39 @@ body {
 .currentWeather {
     border: 1px solid black;
     border-radius: 5px;
-    padding: 20px;
-    width: 30vw;
-    height: 20vh;
+    padding: 15px;
+    /* width: 30vw;
+    height: 20vh; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#info-container {
+    padding: 10px
+}
+
+#descrip {
+    text-align: center;
+}
+
+#links a img{
+    width: 50px;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0;
+}
+
+#git, #linkedin {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    
+}
+#git, #linkedin p {
+    margin: 0;
+    color: blue
 }

@@ -63,7 +63,7 @@ function directions(avg, windDir) {
     }
             let paths = d3.selectAll("path")
             let windDirection = directionMovement(calculateLoss(paths, avg), paths, avg)
-
+            console.log(windDirection)
 
             let length = Math.ceil(windDirection.length / 4)
 
@@ -87,7 +87,7 @@ function directions(avg, windDir) {
 
             // debugger
             let aboveAndBelow = addMoreLines(windDirection)
-
+        console.log(aboveAndBelow)
         var group = canv.append('g')
             .attr("transform", "translate(0, 0)")
 
