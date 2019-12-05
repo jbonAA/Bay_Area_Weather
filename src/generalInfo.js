@@ -22,6 +22,7 @@ function appendElements(windData) {
         }else{
             ele = document.createElement("p")
             ele.textContent = `${keys[idx]}` + ": " + `${el}`
+            ele.setAttribute("color", "white")
             infodiv.append(ele)
         }
     })

@@ -19,22 +19,28 @@
 #info {
     margin: auto;
     margin-top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
 }
 
 #info h2 {
     text-align: center;
+    color: white;
 }
 
 #info h3 {
     margin: 0;
     text-align: center;
     padding: 10px;
+    color: white;
 }
 
 .weatherinfo {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-evenly;
     
 }
 
@@ -47,22 +53,30 @@ body {
 }
 
 .currentWeather {
-    border: 1px solid black;
+    border: 1px solid white;
     border-radius: 5px;
     padding: 15px;
-    /* width: 30vw;
-    height: 20vh; */
+    width: 35vw;
+    height: 13vh;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
+    align-content: center;
 }
 
 #info-container {
-    padding: 10px
+    padding: 10px;
+    background-color: #1A1A1A;
+    
 }
 
 #descrip {
     text-align: center;
+}
+
+#descrip p {
+    line-height: 1.5em;
+    color: whitesmoke
 }
 
 #links a img{
@@ -72,6 +86,14 @@ body {
     flex-direction: row;
     justify-content: space-between;
     margin: 0;
+    border: 1px solid white;
+    background-color: white;
+    border-radius: 3px;
+
+}
+
+#links p {
+    color: whitesmoke
 }
 
 #git, #linkedin {
@@ -81,7 +103,7 @@ body {
     align-items: center;
     
 }
-#git, #linkedin p {
-    margin: 0;
-    color: blue
+
+.currentWeather p {
+    color: white;
 }
