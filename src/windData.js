@@ -88,49 +88,38 @@ function calculateLoss(lines, num) {
         case(num <= 90):
             if (num === 0) {
                 start.push({x: 0, y: 800})
-                start.push({x: 50, y: 750})
             }else if(num <= 45){
-                start.push({x: 200, y: 800})
-                start.push({ x: 250, y: 750})
+                start.push({x: 0, y: 800})
             }else if(num <= 90){
-                start.push({x: 400, y: 800})
-                start.push({ x: 450, y: 750})
+                start.push({x: 0, y: 800})
             }
         break
         case(num <= 180):
             if(num <= 120){
                 start.push({x: 0, y: 0})
-                start.push({ x: 50, y: 50 })
             }else if (num <= 160){
-                start.push({x: 200, y: 0})
-                start.push({ x: 250, y: 50})
+                start.push({x: 0, y: 0})
             }else if(num <= 180){
-                start.push({ x: 400, y: 0})
-                start.push({ x: 450, y: 50})
+                start.push({ x: 0, y: 0})
             }
         break
         case(num <= 270):
             if(num <= 210){
-                start.push({ x: 700, y: 50})
-
+                start.push({ x: 800, y: 0})
             }else if(num <= 240){
-                start.push({ x: 800, y: 200})
-                start.push({ x: 750, y: 250})
+                start.push({ x: 800, y: 0})
             }else if(num <= 270){
-                start.push({ x:800, y: 380})
+                start.push({ x:800, y: 0})
 
             }
         break
         case(num <= 360):
             if(num <= 300){
                 start.push({x: 800, y: 800 })
-                start.push({ x: 750, y: 750})
             }else if(num <= 330){
-                start.push({x: 600, y: 800})
-                start.push({ x: 550, y: 750})
+                start.push({x: 800, y: 800})
             }else if(num <= 360){
-                start.push({ x: 400, y: 800 })
-                start.push({ x: 400, y: 750})
+                start.push({ x: 800, y: 800 })
             }
         break
     }
