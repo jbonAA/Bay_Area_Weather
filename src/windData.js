@@ -68,8 +68,8 @@ function directionMovement(start, lines, avg) {
 
     start.push(determineDirection(firstPoints, dir))
     let recent = start.slice(-1)
-    if(recent[0].x >= 0 && recent[0].y < 800) {
-        if(recent[0].x < 800 && recent[0].y >= 0){
+    if(recent[0].x >= 0 && recent[0].y <= 800) {
+        if(recent[0].x <= 800 && recent[0].y >= 0){
             return directionMovement(start, lines, avg)
         }else{
             return start
@@ -91,7 +91,7 @@ function calculateLoss(lines, num) {
             }else if(num <= 45){
                 start.push({x: 0, y: 800})
             }else if(num <= 90){
-                start.push({x: 0, y: 800})
+                start.push({x: 0, y: 400})
             }
         break
         case(num <= 180):
@@ -100,7 +100,7 @@ function calculateLoss(lines, num) {
             }else if (num <= 160){
                 start.push({x: 0, y: 0})
             }else if(num <= 180){
-                start.push({ x: 0, y: 0})
+                start.push({ x: 0, y: 400})
             }
         break
         case(num <= 270):
@@ -109,17 +109,17 @@ function calculateLoss(lines, num) {
             }else if(num <= 240){
                 start.push({ x: 800, y: 0})
             }else if(num <= 270){
-                start.push({ x:800, y: 0})
+                start.push({ x:800, y: 400})
 
             }
         break
         case(num <= 360):
             if(num <= 300){
-                start.push({x: 800, y: 800 })
+                start.push({x: 750, y: 750 })
             }else if(num <= 330){
-                start.push({x: 800, y: 800})
+                start.push({x: 750, y: 750})
             }else if(num <= 360){
-                start.push({ x: 800, y: 800 })
+                start.push({ x: 300, y: 750 })
             }
         break
     }

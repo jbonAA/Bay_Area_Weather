@@ -138,7 +138,6 @@ class WindDirections {
             let that = this
             const res = await fetch(`https://api.weather.gov/points/${el}/forecast/hourly`)
                 .then(res => res.json())
-
                 .then(data => {
                         that.promises.push({
                             data: data.properties

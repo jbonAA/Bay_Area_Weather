@@ -6,8 +6,19 @@ function addMoreLines (start) {
 
     // debugger
     start.forEach((el) => {
-        above.push({x: el.x + 20, y: el.y + 20})
-        below.push({x: el.x - 20, y: el.y - 20})
+        if(start[0].x > 700 && start[0].y > 700){
+            above.push({x: el.x + 20, y: el.y - 20})
+            below.push({x: el.x - 20, y: el.y + 20}) 
+        }else if(start[0].x > 700 && start[0].y < 400){
+            above.push({x: el.x - 20, y: el.y - 20})
+            below.push({x: el.x - 20, y: el.y + 20})
+        }else if(start[0].x > 200 && start[0].y > 750){
+            above.push({x: el.x + 20, y: el.y - 20})
+            below.push({x: el.x + 20, y: el.y + 20})
+        }else{ 
+            above.push({x: el.x + 20, y: el.y - 0})
+            below.push({x: el.x - 20, y: el.y + 0})
+        }
 
 
     })
