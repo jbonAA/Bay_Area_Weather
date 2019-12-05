@@ -118,7 +118,7 @@ class WindDirections {
             [37.875271, -122.597703],
             [37.882356, -122.282195],
             [37.677214, -122.495821],
-            [37.705890, -122.157217]
+            [37.7749, -122.4194]
         ]
         //make allStations map bounds
         //grab lnglat from place string
@@ -136,7 +136,7 @@ class WindDirections {
     getWeather() {
         this.allStations.forEach(async (el) => {
             let that = this
-            const res = await fetch(`http://api.weather.gov/points/${el}/forecast/hourly`)
+            const res = await fetch(`https://api.weather.gov/points/${el}/forecast/hourly`)
                 .then(res => res.json())
 
                 .then(data => {
