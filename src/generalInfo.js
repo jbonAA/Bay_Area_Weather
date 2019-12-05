@@ -1,13 +1,13 @@
 //need to append all info to the #info item
 
-debugger
+// debugger
 
 function appendElements(windData) {
-    console.log(windData)
+    // console.log(windData)
     let info = document.querySelector("#info")
     let container = document.createElement("div")
     container.setAttribute("class", "currentWeather")
-    console.log(Object.keys(windData))
+    // console.log(Object.keys(windData))
 
     let keys = Object.keys(windData)
 

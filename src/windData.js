@@ -37,7 +37,7 @@ function directionMovement(start, lines, avg) {
     let shortest = 800
     let points = {x: 0, y: 0}
     let dir = {x: 0, y: 0}
-    console.log(shortest)
+    // console.log(shortest)
 
     lines._groups[0].forEach((el) => {
         // debugger
@@ -54,7 +54,7 @@ function directionMovement(start, lines, avg) {
                 firstPoints.y = last[0].y
                 dir.x = newx
                 dir.y = newy
-                console.log(dir)
+                // console.log(dir)
             }
 
             // console.log(el)
