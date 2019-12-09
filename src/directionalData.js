@@ -47,7 +47,7 @@ function directions(avg, windDir) {
             .transition()
                 .duration(4000)
                 .ease(d3.easeLinear)
-                .attr("opacity", 0)
+                .attr("opacity", 0.5)
                 .attr("stroke", "white")
                 .attr("stroke-width", 0.6)
             
