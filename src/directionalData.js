@@ -1,5 +1,5 @@
 const STARTINGPOINTS = [{
-    south: [{x: 200, y: 400}, { x: 600, y: 400 }, {x: 200, y: 800}, {x: 600, y: 800}],
+    south: [{x: 200, y: 400}, { x: 600, y: 400 }, {x: 200, y: 800}, {x: 600, y: 600}],
     east: [{ x: 400, y: 200 }, { x: 800, y: 200 }, { x: 400, y: 600 }, { x: 800, y: 600 }],
     west: [{ x: 0, y: 200 }, { x: 400, y: 200 }, { x: 0, y: 600 }, { x: 400, y: 600 }],
     north: [{ x: 200, y: 0 }, { x: 600, y: 0 }, { x: 200, y: 400 }, { x: 600, y: 400 }]
@@ -203,8 +203,9 @@ function returnLine(num, idx) {
             y = STARTINGPOINTS[0].south[idx].y
             let endX1 = [x - 400, x + 400]
             let endY1 = [y - 200, y + 400]
+            debugger
 
-            while (x < endX1[1] && y < endY1[0] ) {
+            while (x < endX1[1] && y < endY1[1] ) {
                 x = line[line.length - 1].x
                 y = line[line.length - 1].y
                 if (num < 30) {

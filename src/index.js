@@ -82,10 +82,10 @@ class WindDirections {
         })
         this.avg = this.avg / 4
 
-        // console.log(this.avg)
+        console.log(this.avg)
 
         directions(this.avg, Object.values(wind.windDir))
-        // console.log(this.windDir)
+        console.log(this.windDir)
         this.formatData(this.forecast)
 
         let in6hours = document.createElement("h3")
