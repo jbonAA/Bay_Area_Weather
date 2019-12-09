@@ -186,13 +186,11 @@ class WindDirections {
         let in6hours = document.createElement("h3")
         in6hours.textContent = "6 Hours From Now"
         let container = document.querySelector("#info")
-
         container.append(in6hours)
 
         this.formatData(this.future1)
         let in12hours = document.createElement("h3")
         in12hours.textContent = "12 Hours From Now"
-
         container.append(in12hours)
         this.formatData(this.future2)
     }

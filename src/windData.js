@@ -8,7 +8,7 @@ function determineDirection(firstPoints, dir){
         if (dir.y === 0){
             return {x: firstPoints.x -32, y: firstPoints.y}
         }else if(dir.y < 0){
-            return {x: firstPoints.x -32, y: firstPoints.y -32}
+            return {x: firstPoints.x +32, y: firstPoints.y +32}
         }else if(dir.y > 0){
             return {x: firstPoints.x - 32, y: firstPoints.y + 32}
         }
@@ -96,9 +96,9 @@ function calculateLoss(lines, num) {
         break
         case(num <= 180):
             if(num <= 120){
-                start.push({x: 0, y: 0})
+                start.push({x: 400, y: 0})
             }else if (num <= 160){
-                start.push({x: 0, y: 0})
+                start.push({x: 400, y: 0})
             }else if(num <= 180){
                 start.push({ x: 0, y: 400})
             }
