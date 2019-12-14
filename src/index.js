@@ -76,7 +76,7 @@ class WindDirections {
     }
 
     findAvg() {
-        // console.log(this.forecast)
+        console.log(this.windDir)
         Object.values(this.windDir).forEach((el) => {
             this.avg += el
         })
