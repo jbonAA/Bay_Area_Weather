@@ -62,12 +62,13 @@ function directionMovement(start, lines, avg) {
             // console.log(shortest)
         })
     })
-    // console.log(dir)
+    console.log(dir)
 
 
 
     start.push(determineDirection(firstPoints, dir))
     let recent = start.slice(-1)
+    console.log(start)
     if(recent[0].x >= 0 && recent[0].y <= 800) {
         if(recent[0].x <= 800 && recent[0].y >= 0){
             return directionMovement(start, lines, avg)
@@ -105,9 +106,9 @@ function calculateLoss(lines, num) {
         break
         case(num <= 270):
             if(num <= 210){
-                start.push({ x: 200, y: 0})
+                start.push({ x: 0, y: 700})
             }else if(num <= 240){
-                start.push({ x: 200, y: 0})
+                start.push({ x: 400, y: 800})
             }else if(num <= 270){
                 start.push({ x:800, y: 400})
 
