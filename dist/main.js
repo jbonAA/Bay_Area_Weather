@@ -102,7 +102,7 @@ const CARDINAL = {
     "ESE": 290,
     "SE": 315,
     "SSE": 340,
-    "S": 360,
+    "S": 0,
     "SSW": 25, 
     "SW": 45,
     "WSW": 65,
@@ -171,7 +171,7 @@ class WindDirections {
     }
 
     findAvg() {
-        // console.log(this.forecast)
+        console.log(this.windDir)
         Object.values(this.windDir).forEach((el) => {
             this.avg += el
         })
