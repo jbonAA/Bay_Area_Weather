@@ -116,7 +116,7 @@ function calculateLoss(lines, num) {
         break
         case(num <= 360):
             if(num <= 300){
-                start.push({x: 750, y: 750 })
+                start.push({x: 0, y: 0 })
             }else if(num <= 330){
                 start.push({x: 750, y: 750})
             }else if(num <= 360){
