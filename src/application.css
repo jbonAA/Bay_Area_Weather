@@ -49,8 +49,10 @@ body {
     background-size: contain;
     background-repeat: no-repeat;
     z-index: -1;
+    background-color: #1A1A1A;
     
 }
+
 
 .currentWeather {
     border: 1px solid white;
