@@ -1,8 +1,8 @@
 
 function determineDirection(firstPoints, dir){
     // debugger
-    // console.log(firstPoints)
-    // console.log(dir.y)
+    console.log(firstPoints)
+    console.log(dir.y)
 
     if (dir.x < 0){
         if (dir.y === 0){
@@ -101,7 +101,7 @@ function calculateLoss(lines, num) {
             }else if (num <= 160){
                 start.push({x: 400, y: 0})
             }else if(num <= 180){
-                start.push({ x: 0, y: 400})
+                start.push({ x: 400, y: 600})
             }
         break
         case(num <= 270):
