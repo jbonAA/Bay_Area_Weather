@@ -233,6 +233,7 @@ function directions(avg, windDir) {
 
                     }
 
+                    // pushingtomaster
                     // canv.append("circle")
                     //     .attr("cx", 25)
                     //     .attr("cy", 25)
