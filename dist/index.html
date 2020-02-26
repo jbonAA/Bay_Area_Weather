@@ -6,42 +6,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://d3js.org/d3.v4.js"></script>
-    <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.4.11/d3.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.4.1/d3.min.js"></script>
+    <!-- <script src="https://d3js.org/d3.v4.js"></script>
+    <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.4.11/d3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.4.1/d3.min.js"></script> -->
+    <script src="https://d3js.org/d3.v5.min.js"></script>
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="../src/application.css">
 </head>
 <script src="../src/windData.js"></script>
 <script src="../src/animate.js"></script>
 <script src="../src/generalInfo.js"></script>
-<script src="../src/paths.js"></script>
 <script src="../src/directionalData.js"></script>
 <script src="../src/generalInfo.js"></script>
 
 
 <body id="body">
         <script src="main.js"></script>
-        <div class="weatherinfo">
-            <div id="map">
-
-                
-            </div>
-            <div id="info-container">
-                <div id="info">
-                    <h2>Bay Area Weather Forecast</h2>
-                </div>
-                <div id="descrip">
-                    <p>Forecasting and dynamic representation of the wind as it moves through the Bay Area. API data generates directional information under the hood for each quadrant of the map. Loss is calulated, drawing a projection of current wind conditions.</p>
-                    <div id="links">
-                        <p>Checkout the Repo on Github and Connect With Me on LinkedIn!</p>
-                        <div id="git">
-                            <a href="https://github.com/jbonAA/Bay_Area_Weather"> <img src="https://icon-library.net/images/github-icon-png/github-icon-png-22.jpg"></a>
-                            <a href="https://www.linkedin.com/in/jess-bon-97368b197/"> <img src="https://cdn3.iconfinder.com/data/icons/social-icons-5/606/LinkedIn.png"></a>
+        <div class="main">
+            <div class="weatherinfo">
+                <div id="map"></div>
+                <div id="info-container">
+                    <div id="info">
+                        <h2>Bay Area Weather Forecast</h2>
+                    </div>
+                    <div id="descrip">
+                        <p>Forecasting and dynamic representation of the wind as it moves through the Bay Area. <br> API data generates directional information under the hood for each quadrant of the map. <br> Loss is calulated, drawing a projection of current wind conditions.</p>
+                        <div id="links">
+                            <p>Checkout the Repo on Github and Connect With Me on LinkedIn!</p>
+                            <div id="git">
+                                <a href="https://github.com/jbonAA/Bay_Area_Weather"> <img src="https://icon-library.net/images/github-icon-png/github-icon-png-22.jpg"></a>
+                                <a href="https://www.linkedin.com/in/jess-bon-97368b197/"> <img src="https://cdn3.iconfinder.com/data/icons/social-icons-5/606/LinkedIn.png"></a>
+                            </div>
                         </div>
                     </div>
                 </div>
+            </div>
+            <div id="search">
+                
             </div>
         </div>
 
