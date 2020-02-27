@@ -11,8 +11,8 @@
   
 Forecasting and dynamic representation of the wind as it moves through the Bay Area. 
   
-<img width="796" alt="Screen Shot 2019-12-04 at 8 53 32 PM" src="https://user-images.githubusercontent.com/52093281/70263494-56889880-174b-11ea-8d4e-a2afc041997d.png">
+<img width="801" alt="Screen Shot 2020-02-27 at 8 39 10 AM" src="https://user-images.githubusercontent.com/52093281/75464939-c8ccdb80-593c-11ea-8c93-3ade44cc2154.png">
 
 API data generates directional information under the hood for each quadrant of the map. Loss is calulated drawing a projection of current wind conditions.
 
-<img width="800" alt="Screen Shot 2019-12-05 at 9 29 16 AM" src="https://user-images.githubusercontent.com/52093281/70263709-d7479480-174b-11ea-9086-5674eea7d3f3.png">
+
