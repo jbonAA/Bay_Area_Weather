@@ -115,14 +115,13 @@ class WindDirections {
                     this.findAvg();
                 }
             })
+
+
         })
 
             //need to make future objects with this.forecast.forEach and it needs to have keys that correspond with the old AI
             //elevation and period get saved into this.data
 
-
-
-            
                 
                 //turn response to json
 
@@ -210,11 +209,13 @@ class WindDirections {
 
     findAvg() {
         // console.log(this.windDir)
+
         let overall = 0
         Object.values(this.windDir).forEach((el) => {
             overall += el
         })
         this.avg = overall / 4
+        
 
         directions(this.avg, Object.values(wind.windDir))
         
@@ -226,9 +227,17 @@ class WindDirections {
         console.log("future2")
         let container = document.querySelector("#info")
 
+        debugger
+
         this.formatData(this.forecast[0])
 
         
+        //trying to append an image for each forecast
+        //1. check if variables contain weather.main
+        //2. if not need to save into variables from res
+        //3. because I'm calling formatData with the forecast and futures
+        //I'll need to append corresponding picture somewherein that function
+
 
         
         let in12hours = document.createElement("h3")
@@ -242,31 +251,34 @@ class WindDirections {
 
         container.append(in24hours)
         this.formatData(this.future2)
-        this.addSearch()
+        // this.addSearch()
     }
 
-    addSearch() {
-        let DEN = document.createElement("button")
-        DEN.textContent = "Denver"
-        let ALA = document.createElement("button")
-        ALA.textContent= "Anchorage"
-        let LON = document.createElement("button")
-        LON.textContent = "London"
-        let TOK = document.createElement("button")
-        TOK.textContent = "Tokyo"
+
+
+    // addSearch() {
+    //     let DEN = document.createElement("button")
+    //     DEN.textContent = "Denver"
+    //     let ALA = document.createElement("button")
+    //     ALA.textContent= "Anchorage"
+    //     let LON = document.createElement("button")
+    //     LON.textContent = "London"
+    //     let TOK = document.createElement("button")
+    //     TOK.textContent = "Tokyo"
         
-        let root = document.getElementById("search")
-        root.append(DEN)
-        root.append(ALA)
-        root.append(LON)
-        root.append(TOK)
+    //     let root = document.getElementById("search")
+    //     root.append(DEN)
+    //     root.append(ALA)
+    //     root.append(LON)
+    //     root.append(TOK)
 
-        let onClik = document.querySelectorAll("button")
-        console.log(onClik)
-        onClik.forEach((el) => {
-            el.addEventListener('click', (event) => this.createNewMap(event))
-        })
-    }
+    //     let onClik = document.querySelectorAll("button")
+    //     console.log(onClik)
+    //     console.log(onClik)
+    //     onClik.forEach((el) => {
+    //         el.addEventListener('click', (event) => this.createNewMap(event))
+    //     })
+    // }
 
     createNewMap(e) {
         e.preventDefault();
@@ -283,8 +295,7 @@ class WindDirections {
         let details = {
             // icon: forecast.icon,
             //grab from front file
-
-            Forecast: forecast.weather[0].main,
+            Icon: forecast.weather[0].icon,
             Temperature: ` ${Math.floor(forecast.main.temp)} F`,
             FeelsLike: `${Math.floor(forecast.main.feels_like)} F`,
             WindDirection: "Approx  " + `${dirs} ` + `${forecast.wind.speed} MPH`

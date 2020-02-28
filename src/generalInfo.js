@@ -5,7 +5,7 @@
 
 
 
-function appendElements(windData) {
+async function appendElements(windData) {
 
     //pull elements from windData below
     //switch case for choosing the image
@@ -21,16 +21,40 @@ function appendElements(windData) {
     //     "sunset":
     // }
 
+    
+    
+
+
+
+
     // console.log(windData)
     let info = document.querySelector("#info")
     let container = document.createElement("div")
     container.setAttribute("class", "currentWeather")
     // console.log(Object.keys(windData))
+    let picture = document.createElement("div")
+    let icon = await fetch(`http://openweathermap.org/img/wn/${windData.Icon}@2x.png}`)
+        icon.json().then((res) => {
+            let img = document.createElement("img")
+            img.setAttribute("src", `${res}`)
+            console.log(img)
+            picture.append(img)
+        })
+    
+   
+    // picture.setAttribute("id", "image")
+    // picture.setAttribute("background-image", url(`http://openweathermap.org/img/wn/${icon}@2x.png`))
+    // container.append(picture)
+
+    // let ele = document.createElement("img")
+    // ele.setAttribute("src", url(icon))
+    // let pic = document.getElementById("image")
+    // pic.append(ele)
 
     let keys = Object.keys(windData)
     infodiv = document.createElement("div")
 
-    Object.values(windData).forEach((el, idx) => {
+    Object.values(windData).forEach(async (el, idx) => {
         let ele;
         if (idx === 0) {
             //condition if sunrise <= dt <= sunset
@@ -47,7 +71,8 @@ function appendElements(windData) {
             //     "snowy": "url" 
             // }
             
-            console.log("hello")
+            
+
             // ele = document.createElement("img")
             // ele.setAttribute("src", el)
             // ele.setAttribute("width", 118)
