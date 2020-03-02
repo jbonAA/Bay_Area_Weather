@@ -10,6 +10,8 @@
   
   
 Forecasting and dynamic representation of the wind as it moves through the Bay Area. 
+
+[Example](photos/ReadmeV2.png)
  
 [Giphy](https://media.giphy.com/media/YSMO2Y03qc91Nvnq7f/giphy.gif)
 
