@@ -29,17 +29,17 @@ async function appendElements(windData) {
 
     // console.log(windData)
     let info = document.querySelector("#info")
-    let container = document.createElement("div")
-    container.setAttribute("class", "currentWeather")
+    let container1 = document.createElement("div")
+    container1.setAttribute("class", "currentWeather")
     // console.log(Object.keys(windData))
-    let picture = document.createElement("div")
-    let icon = await fetch(`http://openweathermap.org/img/wn/${windData.Icon}@2x.png}`)
-        icon.json().then((res) => {
-            let img = document.createElement("img")
-            img.setAttribute("src", `${res}`)
-            console.log(img)
-            picture.append(img)
-        })
+    // let picture = document.createElement("div")
+    // let icon = await fetch(`http://openweathermap.org/img/wn/${windData.Icon}@2x.png}`)
+    //     icon.json().then((res) => {
+    //         let img = document.createElement("img")
+    //         img.setAttribute("src", `${res}`)
+    //         console.log(img)
+    //         picture.append(img)
+    //     })
     
    
     // picture.setAttribute("id", "image")
@@ -85,8 +85,8 @@ async function appendElements(windData) {
         }
     })
 
-    info.append(container)
-    container.append(infodiv)
+    info.append(container1)
+    container1.append(infodiv)
 
     
 }

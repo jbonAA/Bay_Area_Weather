@@ -251,8 +251,8 @@ class WindDirections {
 
         container.append(in24hours)
         this.formatData(this.future2)
-        // this.addSearch()
     }
+
 
 
 

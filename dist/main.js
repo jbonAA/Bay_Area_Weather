@@ -346,8 +346,8 @@ class WindDirections {
 
         container.append(in24hours)
         this.formatData(this.future2)
-        // this.addSearch()
     }
+
 
 
 
@@ -368,6 +368,7 @@ class WindDirections {
     //     root.append(TOK)
 
     //     let onClik = document.querySelectorAll("button")
+    //     console.log(onClik)
     //     console.log(onClik)
     //     onClik.forEach((el) => {
     //         el.addEventListener('click', (event) => this.createNewMap(event))

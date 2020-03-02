@@ -11,10 +11,11 @@ function determineDirection(firstPoints, dir){
             return {x: firstPoints.x - dir.xInc, y: firstPoints.y + dir.yInc}
         }
     }else if (dir.x === 0){
+        debugger
         if (dir.y > 0) {
-            return {x: firstPoints.xInc, y: firstPoints.y - dir.yInc}
+            return {x: firstPoints.x + dir.xInc, y: firstPoints.y - dir.yInc}
         }else{
-            return {x: firstPoints.xInc, y: firstPoints.y + dir.yInc}
+            return {x: firstPoints.x + dir.xInc, y: firstPoints.y + dir.yInc}
         }
     }else{
         if(dir.y < 0){
