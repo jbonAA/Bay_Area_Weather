@@ -197,6 +197,7 @@ function calculateLoss(lines, num) {
     
     variablesX(x)
     variablesY(y)
+    inBetweenX()
     
     function variablesX(pos1) {
         let x = pos1
@@ -209,6 +210,20 @@ function calculateLoss(lines, num) {
         }
     
     }
+
+    function inBetweenX() {
+        let x = 400;
+        let y = 0
+        while(y < 800){
+            let point = [{ x: x, y: y }]
+            let corresponding = [{ x: y, y: x}]
+            y += 100
+            visualize.push(point)
+            visualize.push(corresponding)
+
+        }
+    }
+
     
     function variablesY(pos2) {
         let y = pos2;
