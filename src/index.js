@@ -99,6 +99,7 @@ class WindDirections {
                     return res
                 }).then((res) => {
                     this.data.push(res)
+                    return res
                 })
             }
             let currentConditions = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${el[0]}&lon=${el[1]}&APPID=2e14d65f0b3ac59338aec11f11a66da5&units=imperial`)
@@ -106,7 +107,11 @@ class WindDirections {
             currentConditions.json().then((res) => {
                 this.forecast[i] = res
                 // this.formatData(res)
-                this.windDir.push(res.wind.deg)
+                if(res.wind.deg){
+                    this.windDir.push(res.wind.deg)
+                }else{
+                    this.windDir.push(275)
+                }
                 this.avg += res.wind.deg
                 this.current = res
                 return res
@@ -115,6 +120,7 @@ class WindDirections {
                     this.findAvg();
                 }
             })
+
 
 
         })
@@ -228,6 +234,7 @@ class WindDirections {
         let container = document.querySelector("#info")
 
 
+        debugger
         this.formatData(this.forecast[0])
 
         
