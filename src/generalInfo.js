@@ -21,19 +21,27 @@ async function appendElements(windData) {
     //     "sunset":
     // }
 
+    // debugger
+
     
-    
 
 
-
+// executed applied enabled employed
 
     // console.log(windData)
     let info = document.querySelector("#info")
     let container1 = document.createElement("div")
     container1.setAttribute("class", "currentWeather")
+
+    // let picture = document.createElement("div")
+    // picture.setAttribute("class", "img")
+    // container1.append(picture)
+
+
+    // let icon = await fetch(`https://openweathermap.org/img/wn/${windData.Icon}@2x.png`)
+
     // console.log(Object.keys(windData))
     // let picture = document.createElement("div")
-    // let icon = await fetch(`http://openweathermap.org/img/wn/${windData.Icon}@2x.png}`)
     //     icon.json().then((res) => {
     //         let img = document.createElement("img")
     //         img.setAttribute("src", `${res}`)

@@ -69,14 +69,14 @@ function directions(avg, windDir) {
             let windDirection = directionMovement(calculateLoss(paths, avg), paths, avg)
             
 
-            console.log("windDirection")
-            console.log(windDirection)
+            // console.log("windDirection")
+            // console.log(windDirection)
             windDirection.forEach((l) => {
                 // let length = Math.ceil(l.length / 4)
 
                 let datum = []
                 datum.push(l)
-                console.log(l)
+                // console.log(l)
                 // let datum2 = []
 
                 // datum1 = l.slice(0, length)
@@ -140,7 +140,7 @@ function directions(avg, windDir) {
                 
                 for (let i = 0; i < datum.length; i++) {
                     let lineData = datum[i]
-                    console.log(lineData)
+                    // console.log(lineData)
                     let idx = i
                     let line = canv.append("path")
                         .attr("d", line2(lineData))
@@ -158,7 +158,7 @@ function directions(avg, windDir) {
 
                         // let dataSet = lineData
     
-                        console.log(dataSet)
+                        // console.log(dataSet)
                         var link = d3.linkHorizontal()
                             .x(function (d) {
                                 return d.x
@@ -177,7 +177,7 @@ function directions(avg, windDir) {
     
                             var timeCircle = canv.append("circle")
                                 .attr("fill", "white")
-                                .attr("r", 10);
+                                .attr("r", 8);
                             repeat();
     
                             function repeat() {
@@ -198,7 +198,7 @@ function directions(avg, windDir) {
                                     .tween("reverseTween", function () { return reverseTween(path) })
                                     .on("end", repeat)
     
-                                console.log(timeCircle)
+                                // console.log(timeCircle)
     
     
                                 function reverseTween(path) {

@@ -183,12 +183,12 @@ class WindDirections {
 
 
         this.allStations.forEach(async (el, i) => {
-            console.log(el)
+            // console.log(el)
             if(i === 0) {
                 let forecast = await fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${el[0]}&lon=${el[1]}&APPID=2e14d65f0b3ac59338aec11f11a66da5&units=imperial`)
                 forecast.json().then((res) => {
                     // this.forecast[i] = res
-                    console.log(res)
+                    // console.log(res)
                     this.future1 = res.list[0]
                     this.future2 = res.list[4]
                     return res
@@ -314,15 +314,14 @@ class WindDirections {
 
         directions(this.avg, Object.values(wind.windDir))
         
-        console.log(this.forecast)
-        console.log("forecast")
-        console.log(this.future1)
-        console.log("future1")
-        console.log(this.future2)
-        console.log("future2")
+        // console.log(this.forecast)
+        // console.log("forecast")
+        // console.log(this.future1)
+        // console.log("future1")
+        // console.log(this.future2)
+        // console.log("future2")
         let container = document.querySelector("#info")
 
-        debugger
 
         this.formatData(this.forecast[0])
 
