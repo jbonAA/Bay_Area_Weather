@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require("webpack");
 
 module.exports = {
     entry: './src/index.js',
@@ -9,4 +10,10 @@ module.exports = {
         devtoolFallbackModuleFilenameTemplate: '[resourcePath]?[hash]'
     },
     devtool: 'source-map',
+    module: {
+        rules: [
+            { test: /\.ico$/, loader: 'file-loader'}
+        ]
+    }
+   
 };

@@ -86,13 +86,29 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./public/favicon.ico":
+/*!****************************!*\
+  !*** ./public/favicon.ico ***!
+  \****************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "46361fc4ffdb02213970b27b65799488.ico");
+
+/***/ }),
+
 /***/ "./src/index.js":
 /*!**********************!*\
   !*** ./src/index.js ***!
   \**********************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _public_favicon_ico__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../public/favicon.ico */ "./public/favicon.ico");
 // const CARDINAL = {
 //     180: "N",
 //     200: "NNE",
@@ -112,6 +128,7 @@
 //     145: "NNW",
 // }
 //due east is 90 degrees due south is 180 due west 270 due north is 360
+
 
 
 class WindDirections {

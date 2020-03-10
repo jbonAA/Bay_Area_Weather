@@ -1,10 +1,9 @@
 
 function determineDirection(firstPoints, dir){
-    debugger
     
     if (dir.x < 0){
         if (dir.y === 0){
-            return {x: firstPoints.x - dir.xInc, y: firstPoints.yInc}
+            return {x: firstPoints.x - dir.xInc, y: firstPoints.y}
         }else if(dir.y < 0){
             return {x: firstPoints.x - dir.xInc, y: firstPoints.y - dir.yInc}
         }else if(dir.y > 0){
@@ -225,7 +224,7 @@ function calculateLoss(lines, num) {
         while(y < 800){
             let point = [{ x: x, y: y }]
             let corresponding = [{ x: y, y: x}]
-            y += 50
+            y += 100
             visualize.push(point)
             visualize.push(corresponding)
 

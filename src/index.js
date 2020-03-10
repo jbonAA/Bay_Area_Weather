@@ -18,6 +18,7 @@
 // }
 //due east is 90 degrees due south is 180 due west 270 due north is 360
 
+import "../public/favicon.ico";
 
 class WindDirections {
     constructor(place) {

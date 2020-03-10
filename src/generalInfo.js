@@ -61,24 +61,47 @@ async function appendElements(windData) {
 
     let keys = Object.keys(windData)
     infodiv = document.createElement("div")
+    infodiv.setAttribute("id", "separate")
+    let addInfo = document.createElement("div")
 
     Object.values(windData).forEach(async (el, idx) => {
+
         let ele;
         if (idx === 0) {
             //condition if sunrise <= dt <= sunset
             //then pull from day folder
 
-            //else pull image from night folder
-            //find the variation in return from API
-            //get pictures for the scenarios in day/night and src url as object
-            //ex 
-            //dark: {"clear": "url",
-            //     "partly": "url",
-            //     "cloudy": "url",
-            //     "rainy": "url",
-            //     "snowy": "url" 
-            // }
+            let iconPics = {
+                "01d": "./photos/light/Clear.png",
+                "02d": "./photos/light/Partly.png",
+                "03d": "./photos/light/Cloudy.png",
+                "04d": "./photos/light/Cloudy.png",
+                "09d": "./photos/light/Rain.png",
+                "10d": "./photos/light/Rain.png",
+                "11d": "./photos/dark/Stormy.png",
+                "50d": "./photos/light/Cloudy.png",
+                "01n": "./photos/dark/Clear.png",
+                "02n": "./photos/dark/Partly.png",
+                "03n": "./photos/dark/Cloudy.png",
+                "04n": "./photos/dark/Cloudy.png",
+                "09n": "./photos/dark/SlightRain.png",
+                "10n": "./photos/dark/Stormy.png",
+                "11n": "./photos/dark/Stormy.png",
+                "50n": "./photos/light/Cloudy.png"
+            }
+
+            debugger
+            let srcString = iconPics[el]
+
             
+            let img = document.createElement("img")
+            let d = document.createElement("div")
+            d.setAttribute("id", "decrease")
+            img.setAttribute("src", srcString)
+            img.setAttribute("id", "photoIcon")
+            d.append(img)
+            infodiv.append(d)
+
             
 
             // ele = document.createElement("img")
@@ -89,10 +112,12 @@ async function appendElements(windData) {
             ele = document.createElement("p")
             ele.textContent = `${keys[idx]}` + ": " + `${el}`
             ele.setAttribute("color", "white")
-            infodiv.append(ele)
+            debugger
+            addInfo.append(ele)
         }
     })
 
+    infodiv.append(addInfo)
     info.append(container1)
     container1.append(infodiv)
 
